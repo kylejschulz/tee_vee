@@ -32,4 +32,10 @@ class ShowTest < Minitest::Test
   def test_it_can_return_array_of_actors
     assert_equal ["David Hasselhoff", "William Daniels"], @knight_rider.actors# => ["David Hasselhoff", "William Daniels"]
   end
+
+  def test_it_can_return_main_characters
+    assert_equal [@kitt], @knight_rider.show_main_characters
+  end
+
+
 end

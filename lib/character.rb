@@ -5,4 +5,9 @@ class Character
     @actor = args[:actor]
     @salary = args[:salary]
   end
+
+  def main_character
+    @salary > 500_000 && (@name == @name.upcase)
+  end
+
 end

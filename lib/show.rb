@@ -18,7 +18,7 @@ class Show
     highest_paid = @characters.max_by do |character|
       character.salary
     end
-    highest_paid.actor 
+    highest_paid.actor
   end
 
   def actors
@@ -27,6 +27,13 @@ class Show
       all_actors << character.actor
     end
     all_actors
+  end
+
+  def show_main_characters
+    main_chars = @characters.select do |char|
+      char.main_character
+    end
+    main_chars
   end
 
 #     names = ["Khloe", "Kim", "Kris", "Kourtney"]
