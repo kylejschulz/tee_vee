@@ -14,6 +14,8 @@ class NetworkTest < Minitest::Test
     @leslie_knope = Character.new({name: "Leslie Knope", actor: "Amy Poehler", salary: 2_000_000})# => #<Character:0x00007fe5f832bb18...>
     @ron_swanson = Character.new({name: "Ron Swanson", actor: "Nick Offerman", salary: 1_400_000})    # => #<Character:0x00007fe5f8172a60...>
     @parks_and_rec = Show.new("Parks and Recreation", "Michael Shur & Greg Daniels", [@leslie_knope, @ron_swanson])    # => #<Show:0x00007fe5f88b0a20...>
+    @mitch = Character.new({name: "Mitch Buchannon", actor: "David Hasselhoff", salary: 1_200_000})    # => #<Character:0x00007fe5f8448f78...>
+    @baywatch = Show.new("Baywatch", "Gregory Bonann", [@mitch])    # => #<Show:0x00007fe5f8398970...>
   end
 
   def test_it_exists
@@ -44,6 +46,8 @@ class NetworkTest < Minitest::Test
   end
 
   def test_it_can_return_actors_by_show
+    #return hash with shows as key, array of names as value
+
     @nbc.add_show(@knight_rider)
     @nbc.add_show(@parks_and_rec)
 
@@ -53,10 +57,23 @@ class NetworkTest < Minitest::Test
 
   assert_equal shows, @nbc.actors_by_show
   end
+
+  def test_shows_by_actor
+    skip
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@baywatch)
+    @nbc.add_show(@parks_and_rec)
+    actor_hash = {
+         "David Hasselhoff" => [@knight_rider, @baywatch],
+         "William Daniels" => [@knight_rider],
+         "Amy Poehler" => [@parks_and_rec],
+         "Nick Offerman" => [@parks_and_rec]
+       }
+      assert_equal actor_hash, @nbc.shows_by_actor
+  end
+
+  def test_most_prolific_actor
+    skip
+    assert_equal ["David Hasselhoff"], @nbc.prolific_actors# => ["David Hasselhoff"]
+  end
 end
-
-
-# nbc.actors_by_show# => {
-#       #<Show:0x00007fe5f8398970...> => ["David Hasselhoff", "William Daniels"],
-#       #<Show:0x00007fe5f88b0a20...> => ["Amy Poehler", "Nick Offerman"]
-# #    }
