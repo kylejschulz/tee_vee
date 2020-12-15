@@ -12,5 +12,26 @@ class Show
       sum += character.salary
     end
     sum
-  end  
+  end
+
+  def highest_paid_actor
+    highest_paid = @characters.max_by do |character|
+      character.salary
+    end
+    highest_paid.actor 
+  end
+
+  def actors
+    all_actors = []
+    @characters.each do |character|
+      all_actors << character.actor
+    end
+    all_actors
+  end
+
+#     names = ["Khloe", "Kim", "Kris", "Kourtney"]
+#     greatest = names.max_by do |name|
+#       name.length
+#     end
+
 end
