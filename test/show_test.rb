@@ -21,19 +21,22 @@ class ShowTest < Minitest::Test
   end
 
   def test_it_can_add_total_salary_for_show
-
+    skip
     assert_equal 2600000, @knight_rider.total_salary
   end
 
   def test_it_can_return_highest_paid_actor
+    skip
     assert_equal "David Hasselhoff", @knight_rider.highest_paid_actor# =>
   end
 
   def test_it_can_return_array_of_actors
+    skip
     assert_equal ["David Hasselhoff", "William Daniels"], @knight_rider.actors# => ["David Hasselhoff", "William Daniels"]
   end
 
   def test_it_can_return_main_characters
+    skip 
     assert_equal [@kitt], @knight_rider.show_main_characters
   end
 
